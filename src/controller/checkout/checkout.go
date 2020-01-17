@@ -11,5 +11,5 @@ func CheckOut(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	_ = tmp.Execute(w,nil)
+	_ = tmp.Execute(w, nil)
 }
