@@ -14,13 +14,13 @@ func main() {
 	fs := http.FileServer(http.Dir("static"))
 	http.Handle("/static/", http.StripPrefix("/static/", fs))
 
-	http.HandleFunc("/Amad", home.Index)
-	http.HandleFunc("/Amad/cart", cart.Cart)
-	http.HandleFunc("/Amad/checkout", checkout.CheckOut)
-	http.HandleFunc("/Amad/productdetail", productdetail.ProductDetail)
-	http.HandleFunc("/Amad/shop", shop.Shop)
+	http.HandleFunc("/Amado", home.Index)
+	http.HandleFunc("/Amado/cart", cart.Cart)
+	http.HandleFunc("/Amado/checkout", checkout.CheckOut)
+	http.HandleFunc("/Amado/productdetail", productdetail.ProductDetail)
+	http.HandleFunc("/Amado/shop", shop.Shop)
 
-	err := http.ListenAndServe(":9000", nil)
+	err := http.ListenAndServe(":8080", nil)
 	if err != nil {
 		log.Fatal(err)
 	}
