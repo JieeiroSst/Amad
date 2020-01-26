@@ -2,8 +2,6 @@ package models
 
 import (
 	"log"
-
-	_ "github.com/go-sql-driver/mysql"
 )
 
 func SelectUserId(firstName, lastname, compayName, email, contry, address, town, zipcode, phone, note string) {
@@ -22,7 +20,9 @@ func SelectAllUser(firstName, lastname, compayName, email, contry, address, town
 	defer rows.Close()
 
 	for rows.Next() {
-		if rows.Err()!=nil{ return}
+		if rows.Err() != nil {
+			return
+		}
 		err := rows.Scan(&firstName, &lastname, &compayName, &email, &contry, &address, &town, &zipcode, &phone, &note)
 		if err != nil {
 			log.Fatal(err)

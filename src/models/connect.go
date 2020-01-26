@@ -27,5 +27,8 @@ func init() {
 		log.Fatal(err)
 	}
 	defer db.Close()
-	_ = db.Ping()
+	err = db.Ping()
+	if err != nil {
+		panic(err.Error())
+	}
 }

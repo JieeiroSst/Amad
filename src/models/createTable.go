@@ -4,8 +4,6 @@ import (
 	"database/sql"
 	"keikibook/src/dto"
 	"log"
-
-	_ "github.com/go-sql-driver/mysql"
 )
 
 var db *sql.DB
