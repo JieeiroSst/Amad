@@ -27,4 +27,5 @@ func init() {
 		log.Fatal(err)
 	}
 	defer db.Close()
+	_ = db.Ping()
 }
