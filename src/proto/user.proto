@@ -1,0 +1,51 @@
+syntax = "proto3";
+package user;
+service  User  {
+  rpc GetUsers(GetRequest) returns (GetResponse);
+  rpc FindUser(FindRequest) returns (FindResponse);
+  rpc CreateUser(CreateRequest) returns (CreateResponse);
+}
+
+message Model {
+  string FirstName=1;
+  string LastName=2;
+  string CompayName=3;
+  string Email=4;
+  string ZipCode=5;
+  string Phone=6;
+  string Note=7;
+  message Address {
+    string Contry=1;
+    string Address=2;
+    string Town=3;
+  }
+  repeated Address address=8;
+}
+
+message GetRequest {
+  string keyword=1;
+}
+
+message FindRequest {
+  string id=1;
+}
+message CreateRequest {
+  Model user = 1;
+}
+
+message GetResponse {
+  string status=1;
+  repeated Model users=2;
+}
+
+message FindResponse {
+  string status=1;
+  Model user = 2;
+}
+
+message CreateResponse {
+  string status=1;
+  string message =2;
+}
+
+//protoc -I user/ user/user.proto --go_out=plugins=grpc:user
