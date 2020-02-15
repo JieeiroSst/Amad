@@ -1,5 +1,8 @@
 syntax = "proto3";
 package user;
+
+import "google/protobuf/descriptor.proto";
+
 service  User  {
   rpc GetUsers(GetRequest) returns (GetResponse);
   rpc FindUser(FindRequest) returns (FindResponse);
