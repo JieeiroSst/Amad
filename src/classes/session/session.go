@@ -1,4 +1,4 @@
-package classes
+package session
 
 import (
 	"fmt"
